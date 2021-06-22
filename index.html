@@ -1,42 +1,80 @@
 <!DOCTYPE html>
 <html>
-    <div id="image">
-        <img src="img/55plJpqA.png">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
+    <meta charset="UTF-8">
+    <title>Checkout Payment</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <script src="https://www.paypal.com/sdk/js?client-id=AfXwpE61Fx06Bo6Jg57wFsCQEEfURr2_Qv_T0El8wAiFHE9BDMw-Xny02Z-mvDxjveKKrVT25Mtzrrwu&currency=USD&disable-funding=credit,card" data-sdk-integration-source="button-factory"></script>
+<main id="cart-main">
+    <div class="site-title text-center">
+        <h1 class="font-title">Shopping Cart</h1>
     </div>
-    <div id="smart-button-container">
-      <div style="text-align: center;">
-        <div id="paypal-button-container"></div>
-      </div>
+
+    <div class="container">
+        <div class="grid">
+            <div class="col-1">
+                <div class="flex item justify-content-between">
+                    <div class="flex">
+                        <div class="img text-center">
+                            <img src="img/adrenal-detox-set.png" alt="zenergistic">
+                        </div>
+                        <div class="title">
+                            <h3>adrenal-detox-set</h3>
+                            <span>zenergymedicinals</span>
+
+                            <div class="buttons">
+                                <button type="submit"><i class="fas fa-chevron-up"></i> </button>
+                                <input type="text" class="font-title" value="1">
+                                <button type="submit"><i class="fas fa-chevron-down"></i> </button>
+                            </div>
+                            <a href="#">Save for later</a> |
+                            <a href="#">Delete From Cart</a>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <h4 class="text-red">$44</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="subtotal text-center">
+                    <h3>Price Details</h3>
+
+                    <ul>
+                        <li class="flex justify-content-between">
+                            <label for="price">Products ( 1 items ) : </label>
+                            <span>$44</span>
+                        </li>
+                        <li class="flex justify-content-between">
+                            <label for="price">Shipping fee : </label>
+                            <span>Free</span>
+                        </li>
+                        <hr>
+                        <li class="flex justify-content-between">
+                            <label for="price">Amout Payble : </label>
+                            <span class="text-red font-title">$44</span>
+                        </li>
+                    </ul>
+                    <div id="smart-button-container">
+                        <div style="text-align: center;">
+                          <div id="paypal-button-container"></div>
+                        </div>
+                      </div>
+                    
+                    <script src="js/test.js"></script>
+                </div>
+            </div>
+        </div>
     </div>
-  <script src="https://www.paypal.com/sdk/js?client-id=AfXwpE61Fx06Bo6Jg57wFsCQEEfURr2_Qv_T0El8wAiFHE9BDMw-Xny02Z-mvDxjveKKrVT25Mtzrrwu&currency=USD" data-sdk-integration-source="button-factory"></script>
-  <script>
-    function initPayPalButton() {
-      paypal.Buttons({
-        style: {
-          shape: 'rect',
-          color: 'blue',
-          layout: 'vertical',
-          label: 'checkout',
-          
-        },
-
-        createOrder: function(data, actions) {
-          return actions.order.create({
-            purchase_units: [{"description":"zenergistic blend of detoxifying and cleansing essential oils, supports the cleansing of old patterns, emotions\n","amount":{"currency_code":"USD","value":44}}]
-          });
-        },
-
-        onApprove: function(data, actions) {
-          return actions.order.capture().then(function(details) {
-            alert('Transaction completed by ' + details.payer.name.given_name + '!');
-          });
-        },
-
-        onError: function(err) {
-          console.log(err);
-        }
-      }).render('#paypal-button-container');
-    }
-    initPayPalButton();
-  </script>
+    
+</main>
+    <!-- <script src="https://www.paypal.com/sdk/js?client-id=AfXwpE61Fx06Bo6Jg57wFsCQEEfURr2_Qv_T0El8wAiFHE9BDMw-Xny02Z-mvDxjveKKrVT25Mtzrrwu"></script> -->
+   
+   
+  </body>
 </html>
